@@ -1,0 +1,119 @@
+{
+  "name": "koa2-boilerplate",
+  "version": "0.0.1",
+  "description": "A simple koa@2 boilerplate",
+  "main": "index.js",
+  "license": "MIT",
+  "engines": {
+    "node": ">=8.0.0",
+    "npm": ">=5.0.0"
+  },
+  "scripts": {
+    "start": "node_modules/.bin/rimraf ./dist && babel -d ./dist ./src -s && node dist/main.js",
+    "dev": "DEBUG=app:* node_modules/.bin/nodemon dev.js",
+    "test": "NODE_ENV=test DB_DIALECT=sqlite FORCE_DB_UPON_START=true node_modules/.bin/ava --verbose --timeout=30s",
+    "test:coverage": "NODE_ENV=test DB_DIALECT=sqlite FORCE_DB_UPON_START=true node_modules/.bin/nyc -r html ava --timeout=30s",
+    "lint:js": "node_modules/.bin/eslint ./src",
+    "lint-staged": "node_modules/.bin/lint-staged"
+  },
+  "dependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-core": "^6.23.1",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-preset-env": "^1.1.11",
+    "bcrypt": "^1.0.2",
+    "bluebird": "^3.5.0",
+    "debug": "^2.6.1",
+    "jsonwebtoken": "^7.4.0",
+    "koa": "^2.2.0",
+    "koa-bodyparser": "^4.2.0",
+    "koa-compose": "^4.0.0",
+    "koa-jsonwebtoken": "^1.3.1",
+    "koa-mount": "^3.0.0",
+    "koa-router": "^7.1.1",
+    "mime": "^1.3.4",
+    "mz": "^2.6.0",
+    "nodemailer": "^4.0.1",
+    "pg": "^6.1.5",
+    "pg-hstore": "^2.3.2",
+    "rimraf": "^2.6.1",
+    "sequelize": "^3.30.4",
+    "sequelize-cli": "^2.7.0",
+    "uuid": "^3.0.1",
+    "validator": "^7.0.0"
+  },
+  "devDependencies": {
+    "ava": "^0.18.2",
+    "babel-register": "^6.23.0",
+    "eslint": "^3.16.1",
+    "eslint-config-airbnb-base": "^11.1.0",
+    "eslint-config-prettier": "^1.4.1",
+    "eslint-plugin-import": "^2.2.0",
+    "lint-staged": "^3.3.1",
+    "nodemon": "^1.11.0",
+    "nyc": "^10.2.0",
+    "pre-commit": "^1.2.2",
+    "proxyquire": "^1.7.11",
+    "sinon": "^2.1.0",
+    "sqlite3": "^3.1.8",
+    "supertest": "^3.0.0"
+  },
+  "ava": {
+    "files": [
+      "test/**/*.test.js"
+    ],
+    "source": [
+      "src/**/*.js"
+    ],
+    "concurrency": 5,
+    "failFast": true,
+    "failWithoutAssertions": false,
+    "powerAssert": false,
+    "require": [
+      "babel-register"
+    ],
+    "babel": "inherit"
+  },
+  "pre-commit": [
+    "lint-staged",
+    "test"
+  ],
+  "lint-staged": {
+    "*.js": "eslint"
+  },
+  "eslintConfig": {
+    "root": true,
+    "rules": {
+      "no-param-reassign": "off",
+      "no-prototype-builtins": "off",
+      "import/no-dynamic-require": "warn"
+    },
+    "extends": [
+      "airbnb-base",
+      "prettier"
+    ],
+    "env": {
+      "node": true
+    }
+  },
+  "babel": {
+    "plugins": [
+      [
+        "transform-object-rest-spread",
+        {
+          "useBuiltIns": true
+        }
+      ]
+    ],
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ]
+  }
+}
