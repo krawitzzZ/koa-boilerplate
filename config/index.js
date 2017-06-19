@@ -11,7 +11,7 @@ module.exports = {
   forceDbUponStart: process.env.FORCE_DB_UPON_START || false,
 
   dbDialect: process.env.DB_DIALECT || 'postgres',
-  dbUrl: process.env.DB_URL,
+  dbUrl: process.env.DATABASE_URL,
   dbHost: process.env.DB_HOST || 'localhost',
   dbPort: process.env.DB_PORT || '5432',
   dbName: process.env.DB_NAME || 'koa_boilerplate',

@@ -1,7 +1,7 @@
-import { newDebug } from '../../../../utils';
+import { createDebugger } from '../../../../utils';
 import authService from '../../services/auth';
 
-const debug = newDebug('app:controllers:auth:login');
+const debug = createDebugger('app:controllers:auth:login');
 
 export default async ctx => {
   debug('login user');

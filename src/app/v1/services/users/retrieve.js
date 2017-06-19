@@ -1,8 +1,8 @@
 import db from '../../../../db/models';
-import { newDebug } from '../../../../utils';
+import { createDebugger } from '../../../../utils';
 import errors from '../../../errors';
 
-const debug = newDebug('app:services:users:retrieve');
+const debug = createDebugger('app:services:users:retrieve');
 const { NotFoundError } = errors;
 
 export default async ctx => {

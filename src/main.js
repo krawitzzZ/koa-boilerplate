@@ -2,9 +2,9 @@ import Koa from 'koa';
 import mount from 'koa-mount';
 import config from '../config';
 import syncDb from './db/syncDb';
-import { newDebug } from './utils';
+import { createDebugger } from './utils';
 
-const debug = newDebug('app:main');
+const debug = createDebugger('app:main');
 const app = require(`./app/${config.apiVersion}`).default;
 
 const server = new Koa();

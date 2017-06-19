@@ -1,7 +1,7 @@
-import { newDebug } from '../../../../utils';
+import { createDebugger } from '../../../../utils';
 import usersService from '../../services/users';
 
-const debug = newDebug('app:controllers:users:update');
+const debug = createDebugger('app:controllers:users:update');
 
 export default async ctx => {
   debug('updating user');

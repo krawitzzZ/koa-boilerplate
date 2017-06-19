@@ -1,8 +1,8 @@
 import db from './models/index';
 import config from '../../config';
-import { newDebug } from '../utils';
+import { createDebugger } from '../utils';
 
-const debug = newDebug('app:syncDb');
+const debug = createDebugger('app:syncDb');
 const { modelScopes: { user: { admin } }, forceDbUponStart } = config;
 
 const syncDb = () =>

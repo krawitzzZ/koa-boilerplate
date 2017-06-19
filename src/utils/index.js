@@ -7,7 +7,7 @@ export const clearConsole = () => {
   }
 };
 
-export const newDebug = name => {
+export const createDebugger = name => {
   const privateDebug = createDebug(name);
   const debug = (data = '', divider = false) => {
     if (divider) {

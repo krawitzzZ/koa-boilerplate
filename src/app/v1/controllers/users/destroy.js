@@ -1,7 +1,7 @@
-import { newDebug } from '../../../../utils';
+import { createDebugger } from '../../../../utils';
 import usersService from '../../services/users';
 
-const debug = newDebug('app:controllers:users:destroy');
+const debug = createDebugger('app:controllers:users:destroy');
 
 export default async ctx => {
   debug('deleting user');

@@ -1,9 +1,9 @@
 import db from '../../../../db/models';
-import { newDebug } from '../../../../utils';
+import { createDebugger } from '../../../../utils';
 import prepareUserForResponse from './prepareForResponse';
 import validateForUpdate from './validateForUpdate';
 
-const debug = newDebug('app:services:users:update');
+const debug = createDebugger('app:services:users:update');
 
 export default async ctx => {
   try {

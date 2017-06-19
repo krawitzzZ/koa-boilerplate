@@ -1,5 +1,5 @@
 const env = process.env;
-const dbUrl = env.DB_URL;
+const dbUrl = env.DATABASE_URL;
 const dbDialect = env.DB_DIALECT || 'postgres';
 const dbUsername = env.DB_USERNAME || 'postgres';
 const dbUserPassword = env.DB_USER_PASSWORD || null;

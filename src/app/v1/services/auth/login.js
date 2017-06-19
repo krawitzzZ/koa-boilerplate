@@ -1,11 +1,11 @@
 import Sequelize from 'sequelize';
 import db from '../../../../db/models';
 import generateToken from '../tokenGenerator';
-import { newDebug } from '../../../../utils';
+import { createDebugger } from '../../../../utils';
 import usersService from '../users';
 import errors from '../../../errors';
 
-const debug = newDebug('app:services:auth:login');
+const debug = createDebugger('app:services:auth:login');
 const { LoginError } = errors;
 
 export default async ctx => {

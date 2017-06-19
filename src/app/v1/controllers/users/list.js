@@ -1,7 +1,7 @@
-import { newDebug } from '../../../../utils';
+import { createDebugger } from '../../../../utils';
 import usersService from '../../services/users';
 
-const debug = newDebug('app:controllers:users:list');
+const debug = createDebugger('app:controllers:users:list');
 
 export default async ctx => {
   debug('retrieving users');

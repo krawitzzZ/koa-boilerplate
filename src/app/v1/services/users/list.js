@@ -1,7 +1,7 @@
 import db from '../../../../db/models';
-import { newDebug } from '../../../../utils';
+import { createDebugger } from '../../../../utils';
 
-const debug = newDebug('app:services:users:list');
+const debug = createDebugger('app:services:users:list');
 
 export default async () => {
   try {

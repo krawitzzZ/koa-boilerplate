@@ -1,9 +1,9 @@
 import db from '../../../../db/models';
 import config from '../../../../../config';
-import { newDebug } from '../../../../utils';
+import { createDebugger } from '../../../../utils';
 import errors from '../../../errors';
 
-const debug = newDebug('app:services:users:destroy');
+const debug = createDebugger('app:services:users:destroy');
 const { modelScopes: { user: { admin } } } = config;
 const { NotFoundError } = errors;
 

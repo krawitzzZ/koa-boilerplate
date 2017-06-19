@@ -1,10 +1,10 @@
 import db from '../../../../db/models';
 import generateToken from '../tokenGenerator';
-import { newDebug } from '../../../../utils';
+import { createDebugger } from '../../../../utils';
 import prepareUserForResponse from './prepareForResponse';
 import errors from '../../../errors';
 
-const debug = newDebug('app:services:users:create');
+const debug = createDebugger('app:services:users:create');
 const { BadRequestError } = errors;
 
 export default async ctx => {
