@@ -4,10 +4,12 @@ import Promise from 'bluebird';
 import config from '../../../config';
 import dbConfig from '../../../config/db';
 
-const sequelize = new Sequelize({
-  ...dbConfig[config.env],
-  // logging: false,
-});
+const sequelize = config.dbUrl
+  ? new Sequelize(config.dbUrl, { logging: false })
+  : new Sequelize({
+      ...dbConfig[config.env],
+      logging: false,
+    });
 
 sequelize.Promise = Promise;
 

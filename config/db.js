@@ -26,11 +26,16 @@ module.exports = {
     host: dbHost,
     dialect: dbDialect,
   },
-  production: dbUrl || {
-    username: dbUsername,
-    password: dbUserPassword,
-    database: dbName,
-    host: dbHost,
-    dialect: dbDialect,
-  },
+  production: dbUrl
+    ? {
+        url: dbUrl,
+        dialect: dbDialect,
+      }
+    : {
+        username: dbUsername,
+        password: dbUserPassword,
+        database: dbName,
+        host: dbHost,
+        dialect: dbDialect,
+      },
 };
