@@ -4,6 +4,8 @@ import Promise from 'bluebird';
 import config from '../../../config';
 import dbConfig from '../../../config/db';
 
+console.log(dbConfig[config.env]);
+
 const sequelize = new Sequelize({
   ...dbConfig[config.env],
   logging: false,
